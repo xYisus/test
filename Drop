@@ -1,0 +1,9 @@
+public function onDeath(PlayerDeathEvent $event){
+  $entity = $event->getEntity();
+  if($entity instanceof Player){
+    $drops = $event->getDrops();
+    $item = Item::get($itemid, $damage, $count);
+    array_push($drops, $item);
+    $event->setDrops($drops);
+  }
+}
